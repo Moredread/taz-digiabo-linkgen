@@ -57,7 +57,6 @@ def print_templates(this_date):
 
 def main():
     arguments = docopt(__doc__, version="0.0.1")
-    print arguments
     dates = past_dates(int(arguments["--days"]))
 
     for d in dates:
