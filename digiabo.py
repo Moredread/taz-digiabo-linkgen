@@ -25,15 +25,15 @@ from datetime import date, timedelta
 from docopt import docopt
 
 templates = [
-    "https://dl.taz.de/abo/{}_{:0=2}_{:0=2}.pdf",
-    "https://dl.taz.de/abo/{}_{:0=2}_{:0=2}_PDF.zip",
-    "https://dl.taz.de/abo/taz_{}_{:0=2}_{:0=2}.epub",
-    "https://dl.taz.de/abo/tazt_{}_{:0=2}_{:0=2}.epub",
-    "https://dl.taz.de/abo/taz_{}_{:0=2}_{:0=2}.mobi",
-    "https://dl.taz.de/abo/tazt_{}_{:0=2}_{:0=2}.mobi",
-    "https://dl.taz.de/abo/{}_{:0=2}_{:0=2}_HTM.zip",
-    "https://dl.taz.de/abo/{}_{:0=2}_{:0=2}.txt",
-    "https://dl.taz.de/abo/{}_{:0=2}_{:0=2}_ASCII.zip"
+    "https://dl.taz.de/abo/{0}_{1:0=2}_{2:0=2}.pdf",
+    "https://dl.taz.de/abo/{0}_{1:0=2}_{2:0=2}_PDF.zip",
+    "https://dl.taz.de/abo/taz_{0}_{1:0=2}_{2:0=2}.epub",
+    "https://dl.taz.de/abo/tazt_{0}_{1:0=2}_{2:0=2}.epub",
+    "https://dl.taz.de/abo/taz_{0}_{1:0=2}_{2:0=2}.mobi",
+    "https://dl.taz.de/abo/tazt_{0}_{1:0=2}_{2:0=2}.mobi",
+    "https://dl.taz.de/abo/{0}_{1:0=2}_{2:0=2}_HTM.zip",
+    "https://dl.taz.de/abo/{0}_{1:0=2}_{2:0=2}.txt",
+    "https://dl.taz.de/abo/{0}_{1:0=2}_{2:0=2}_ASCII.zip"
 ]
 
 
