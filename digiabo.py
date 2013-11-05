@@ -7,17 +7,22 @@ Options:
     -d N --days N  number of days in the past to generate download links for [default: 1]
 
 """
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 from docopt import docopt
 
+templates = [
+    "https://dl.taz.de/abo/taz_{}_{:0=2}_{:0=2}.epub",
+    "https://dl.taz.de/abo/taz_{}_{:0=2}_{:0=2}.mobi",
+]
 
-def generate_past_dates(d, from_date=None):
+
+def past_dates(d, from_date=None):
     """
     Generates a tuple of date objects for the d last days, including the current one.
 
-    >>> generate_past_dates(1, date(2013, 11, 4))
+    >>> past_dates(1, date(2013, 11, 4))
     (datetime.date(2013, 11, 4),)
-    >>> generate_past_dates(5, date(2013, 11, 4))
+    >>> past_dates(5, date(2013, 11, 4))
     (datetime.date(2013, 10, 31), datetime.date(2013, 11, 1), datetime.date(2013, 11, 2), datetime.date(2013, 11, 3), datetime.date(2013, 11, 4))
 
     :param d: number of days to generate
@@ -34,10 +39,22 @@ def generate_past_dates(d, from_date=None):
 
     return tuple(sorted([from_date + i * day_interval for i in range(d)]))
 
+
+def print_templates(this_date):
+    """
+
+    :type this_date: date
+    """
+    for template in templates:
+        print template.format(this_date.year, this_date.month, this_date.day)
+
 def main():
     arguments = docopt(__doc__, version="0.0.1")
     print arguments
-    print generate_past_dates(int(arguments["--days"]))
+    dates = past_dates(int(arguments["--days"]))
+
+    for d in dates:
+        print_templates(d)
 
 if __name__ == '__main__':
     main()
