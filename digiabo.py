@@ -49,11 +49,13 @@ def past_dates(d, from_date=None):
 
 def print_templates(this_date):
     """
+    Prints the list a list of format templates with the given this_date
 
     :type this_date: date
     """
     for template in templates:
         print template.format(this_date.year, this_date.month, this_date.day)
+
 
 def main():
     arguments = docopt(__doc__, version="0.0.1")
