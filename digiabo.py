@@ -4,7 +4,7 @@ Taz digiabo download link generator
 Usage: digiabo.py [-d N | --days N] | --license
 
 Options:
-    -d N --days N  number of days in the past to generate download links for [default: 1]
+    -d N --days N  generate links for N days in the past, including today [default: 1]
     --license  Print the license of this script
 """
 
@@ -72,7 +72,7 @@ def print_templates(this_date):
 
 
 def main():
-    arguments = docopt(__doc__, version="0.0.1")
+    arguments = docopt(__doc__, version="0.1.0")
     dates = past_dates(int(arguments["--days"]))
 
     if arguments["--license"]:
